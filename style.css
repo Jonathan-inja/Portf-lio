@@ -140,6 +140,8 @@ section.topo-do-site .flex{
 /* Estilo das Especialidades */
 section.especialidades{
     padding:50px 4%;
+    box-shadow: 0 0 20px 5px #ffffff2c;
+    border-radius: 30px;
 }
 
 section.especialidades .flex{
@@ -214,4 +216,31 @@ section.sobre .flex{
     cursor: pointer;
     margin: 0 5px;
     transition: .2s;
+}
+
+/* Estilo do portfólio */
+section.portfolio{
+    padding: 50px 4%;
+    box-shadow: 0 0 50px 10px #ffffff2c;
+    border-radius: 30px;
+}
+
+section.portfolio .flex{
+    padding-top: 50px;
+    gap: 60px;
+}
+
+.img-port{
+    width: 360px;
+    height: 460px;
+    background-color: blue;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 6s;
+    cursor: pointer;
+}
+
+.img-port:hover{
+    background-position: 100% 100%;
 }
