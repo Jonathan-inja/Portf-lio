@@ -1,4 +1,5 @@
 /*  Estilo Geral */
+
 *{
     margin: 0;  
     padding: 0;
@@ -13,7 +14,10 @@ body{
     /* background-color: rgb(34, 34, 34); */
     background-color: black;
     color: white;
+}
 
+html {
+    scroll-behavior: smooth;
 }
 
 .flex{
@@ -210,4 +214,57 @@ section.portfolio .flex{
 
 .img-port:hover{
     background-position: 100% 100%;
+}
+
+
+
+/* Estilo do rodapé */
+footer{
+    padding: 40px 4%;
+    box-shadow: 0 0 40px 10px #ffffff2c;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+footer img{
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+footer .flex{
+    justify-content: space-between;
+}
+
+
+footer .btn-social button{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    color: #ffffff;
+    background-color: blue;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: .2s;
+}
+
+footer.line-footer{
+    padding: 20px 0;
+}
+
+.borda{margin: 10px;
+    border-top: 2px solid blue;
+}
+
+footer .line-footer p i{
+    color: blue;
+    font-size: 22px;
+
+}
+
+footer .line-footer p a{
+    color: #ffffff;
+    text-decoration: none;
 }

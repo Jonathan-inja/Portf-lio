@@ -20,19 +20,19 @@
     <header>
 
         <ul>
-            <a class="botoes" href=""><li>Inicio</li></a>
-            <a class="botoes" href=""><li>Especialidades</li></a>
-            <a class="botoes" href=""><li>Projetos</li></a>
+            <a class="botoes" href="#Inicio"><li>Inicio</li></a>
+            <a class="botoes" href="#Especialidades"><li>Especialidades</li></a>
+            <a class="botoes" href="#Portfólio"><li>Projetos</li></a>
             <!-- <a id="Contato" href="#"><li>Contato</li></a> -->
         </ul>
         
     </header>
 
-    
+    <!-- Conteudo do Site -->
     <main>
 
         <!-- Sobre Min -->
-        <section class="topo-do-site">
+        <section id="Inicio" class="topo-do-site">
             <div class="interface">
                 <div class="flex">
                     
@@ -64,7 +64,7 @@
         </section> <!--topo-do-site-->
 
         <!-- Minhas Especialidades-->
-        <section class="especialidades">
+        <section id="Especialidades" class="especialidades">
             <div class="interface">
                 <h2 class="titulo">MINHAS <span>ESPECIALIDADES</span></h2>
                 <div class="flex">
@@ -104,7 +104,7 @@
                     </div><!--especialidades-box-->
                     
                     <div class="especialidades-box">
-                        <i class="bi bi-code-slash"></i>
+                        <i class="bi bi-robot"></i>
                         <h3>Automação de Processos</h3>
                         <p>Desenvolvimento e implementação de soluções para automatizar tarefas repetitivas, aumentando a produtividade e reduzindo erros operacionais.</p>
                     </div><!--especialidades-box-->
@@ -113,8 +113,8 @@
             </div><!--interface-->
         </section> <!--especialidades-->
 
-
-        <section class="portfolio">
+        <!-- Meu portfolio-->
+        <section id="Portfólio" class="portfolio">
             <div class="interface">
                 <h2 class="titulo">MEU <span>PORTFÓLIO</span></h2>
                 <div class="flex">
@@ -124,7 +124,35 @@
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--portfolio-->
+
+
     </main>
-    
+
+    <!-- Entrar em contato-->
+    <footer>
+        <div class="interface">
+            <div class="line-footer">
+                <div class="flex">
+                    <div class="logo-footer">
+                        <img src="images/foto.jpg" alt="Minha logo">
+                    </div>
+                    <div class="btn-social">
+                        <div class="btn-social">
+                            <a href="https://www.linkedin.com/in/jonathan-silva-7a67a221a/"><button><i class="bi bi-linkedin"></i></button></a>
+                            <a href="https://github.com/Jonathan-inja"><button><i class="bi bi-github"></i></button></a>
+                            <a href="https://www.instagram.com/jonathan_silva_31/?hl=pt-br"><button><i class="bi bi-instagram"></i></button></a>
+                            <a href="https://wa.me/message/2RFFTAV5IQYNC1"><button><i class="bi bi-whatsapp"></i></button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="line-footer borda">
+                <p><i class="bi bi-envelope-at"></i> <a href="mailto:jonathan.inja6@gmail.com">jonathan.inja6@gmail.com</a></p>
+            </div>
+
+        </div>
+    </footer>
+
 </body>
 </html>
