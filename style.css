@@ -387,4 +387,8 @@ footer .line-footer p a{
     footer .btn-social {
         justify-content: center;
     }
+
+    footer .line-footer{
+        text-align: center;
+    }
 }
