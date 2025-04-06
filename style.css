@@ -11,7 +11,6 @@ body{
     max-width: 1200px;
     margin: 0 auto;
     padding: 15px;
-    /* background-color: rgb(34, 34, 34); */
     background-color: black;
     color: white;
 }
@@ -22,6 +21,7 @@ html {
 
 .flex{
     display: flex;
+    flex-wrap: wrap;
 }
 
 h2.titulo{
@@ -43,7 +43,6 @@ button:hover{
 }
 
 
-
 /* Estilo do Cabeçalho */
 
 header{
@@ -51,17 +50,18 @@ header{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 h1{
     font-weight: 180;
 }
 
-
 li{
     display: inline-block;
     margin: 15px;
 }
+
 header a{
     text-decoration: none;
     color: rgb(146, 146, 146);
@@ -70,9 +70,11 @@ header a{
     position: relative;
     font-family: 'Courier New', Courier, monospace;
 }
+
 header a:hover{
     color: #ffffff;
 }
+
 header .botoes::after{
     content: " ";
     width: 0%;
@@ -83,20 +85,26 @@ header .botoes::after{
     left: 0;
     transition: 0.5s ease-in-out;
 }
+
 header .botoes:hover::after{
     width: 100%;
 }
-
 
 
 /* Estilo do topo do site */
 section.topo-do-site{
     padding: 40px 4%;
 }
+
 section.topo-do-site .flex{
     align-items: center;
     justify-content: center;
     gap: 90px;
+}
+
+.topo-do-site .txt-topo-site{
+    flex: 1;
+    min-width: 65%;
 }
 
 .topo-do-site .txt-topo-site h2{
@@ -108,7 +116,6 @@ section.topo-do-site .flex{
 .topo-do-site .txt-topo-site h2 span{
     color: blue;
     display: block;
-    
 }
 
 .topo-do-site .txt-topo-site p{
@@ -117,12 +124,17 @@ section.topo-do-site .flex{
     text-align: justify;
 }
 
-.topo-do-site .img-topo-site img{
+.topo-do-site .img-topo-site{
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    justify-content: center;
+}
+
+.topo-do-site .img-topo-site .minha-foto{
     width: 300px; 
     height: 300px; 
-    position: relative;
     border-radius: 50%;
-    justify-content: center;
 }
 
 .topo-do-site .btn-social button{
@@ -139,7 +151,6 @@ section.topo-do-site .flex{
 }
 
 
-
 /* Estilo das Especialidades */
 section.especialidades{
     margin: 30px;
@@ -154,7 +165,6 @@ section.especialidades .flex{
 
 section.especialidades .flex h3{
     font-size: 22px;
-    
 }
 
 section.especialidades .flex p{
@@ -168,8 +178,9 @@ section.especialidades .flex p{
     margin-top: 45px;
     transition: .2s;
     align-items: center;
-
+    flex: 1 1 300px;
 }
+
 .especialidades .especialidades-box:hover{
     transform: scale(1.05);
     box-shadow: 0 0 20px #ffffff8e;
@@ -180,11 +191,11 @@ section.especialidades .flex p{
     color: blue;
     padding-left: 35%;
 }
+
 .especialidades .especialidades-box h3{
     font-size: 26px;
     margin: 5px 0;
 }
-
 
 
 /* Estilo do portfólio */
@@ -198,11 +209,12 @@ section.portfolio{
 section.portfolio .flex{
     padding-top: 50px;
     gap: 60px;
+    justify-content: center;
 }
-
 
 .img-port{
     width: 360px;
+    max-width: 360px;
     height: 460px;
     background-color: blue;
     border-radius: 30px;
@@ -217,13 +229,10 @@ section.portfolio .flex{
 }
 
 
-
 /* Estilo do rodapé */
 footer{
     padding: 40px 4%;
     box-shadow: 0 0 40px 10px #ffffff2c;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
 }
 
 footer img{
@@ -234,8 +243,16 @@ footer img{
 
 footer .flex{
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
+footer .btn-social{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
 
 footer .btn-social button{
     width: 60px;
@@ -246,7 +263,6 @@ footer .btn-social button{
     background-color: blue;
     font-size: 22px;
     cursor: pointer;
-    margin: 0 5px;
     transition: .2s;
 }
 
@@ -254,17 +270,122 @@ footer.line-footer{
     padding: 20px 0;
 }
 
-.borda{margin: 10px;
+.borda {
+    margin: 10px;
     border-top: 2px solid blue;
 }
 
 footer .line-footer p i{
     color: blue;
     font-size: 22px;
-
 }
 
 footer .line-footer p a{
     color: #ffffff;
     text-decoration: none;
+}
+
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .topo-do-site .img-topo-site img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .img-port {
+        width: 300px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .especialidades .especialidades-box i {
+        padding-left: 0;
+    }
+
+    section.especialidades .flex, section.portfolio .flex {
+        gap: 30px;
+    }
+
+    .img-port {
+        width: 100%;
+        height: 300px;
+    }
+
+    .topo-do-site .txt-topo-site h2 {
+        font-size: 26px;
+    }
+
+    .topo-do-site .btn-social button {
+        margin: 10px;
+    }
+
+    .topo-do-site .flex {
+        flex-direction: column;
+    }
+
+    footer .btn-social button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    footer img {
+        width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    header .manu-desk{
+        display: none;
+    }
+
+/*    header ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+*/
+    header a {
+        margin: 5px 0;
+        padding: 5px;
+    }
+
+    .topo-do-site .txt-topo-site h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .topo-do-site .txt-topo-site p {
+        font-size: 14px;
+        margin: 20px 0;
+    }
+
+    .topo-do-site .btn-social{
+        text-align: center;
+    }
+
+    .img-port {
+        height: 250px;
+    }
+
+    .topo-do-site .flex {
+        flex-direction: column;
+    }
+
+    footer .btn-social {
+        justify-content: center;
+    }
 }

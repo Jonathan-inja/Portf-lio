@@ -1,86 +1,502 @@
-<header>
-        <div class="interface">
-            <div class="logo">
-                <a href="#">
-                    Minha logo
-                </a><!--link-->
-            </div><!--logo-->
-            
-            <nav class="menu-desktop">
-                <ul>
-                    <a class="botoes" href="#"><li>Início</li></a>
-                    <li><a href="#">Especialidades</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Projetos</a></li>
-                </ul>
-            </nav><!--menu-desktop-->
-    
-            <div class="btn-contato">
-                <a href="#">
-                    <button>Contato</button>
-                </a>
-            </div><!--btn-contato-->
-            
-        </div><!--interface-->
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <title>Portfólio</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <a class="botoes" href="#Inicio"><li>Inicio</li></a>
+            <a class="botoes" href="#Especialidades"><li>Especialidades</li></a>
+            <a class="botoes" href="#Portfólio"><li>Projetos</li></a>
+        </ul>
     </header>
 
-    *{
-        margin: 0;  
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-    
-    body{
-        background-color: #000;
-        height: 100vh;
-    }
-    
-    .interface{
-        max-width: 1280px;
-        margin: 0 auto;
+    <main>
+        <section id="Inicio" class="topo-do-site">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site">
+
+                        <h2>MUITO PRAZER, <span>SOU JONATHAN SILVA</span></h2>
+                        <p>
+                            Sou estudante de Sistemas de Informação, apaixonado por tecnologia e inovação. Com experiência em infraestrutura de TI, manutenção de computadores e redes, desenvolvi habilidades em suporte técnico, otimização de sistemas e implementação de soluções eficientes para diferentes ambientes tecnológicos.
+                        </p>
+                        <p>
+                            Além da área de infraestrutura, tenho um grande interesse por desenvolvimento de software e busco constantemente aprimorar meus conhecimentos em programação, análise de dados e soluções tecnológicas voltadas para otimização de processos. Acredito que a combinação entre suporte e desenvolvimento é essencial para criar sistemas robustos, eficientes e seguros
+                        </p>
+                        <p>
+                            Meu objetivo é aplicar meu conhecimento teórico e prático em projetos desafiadores, agregando valor por meio da tecnologia e contribuindo para o crescimento de empresas e negócios. Estou sempre em busca de aprendizado e novas oportunidades para evoluir profissionalmente, tornando a tecnologia uma aliada na transformação digital.
+                        </p>
+                        
+                        
+                        <div class="btn-social">
+                            <a href="https://www.linkedin.com/in/jonathan-silva-7a67a221a/"><button><i class="bi bi-linkedin"></i></button></a>
+                            <a href="https://github.com/Jonathan-inja"><button><i class="bi bi-github"></i></button></a>
+                            <a href="https://www.instagram.com/jonathan_silva_31/"><button><i class="bi bi-instagram"></i></button></a>
+                            <a href="https://wa.me/message/2RFFTAV5IQYNC1"><button><i class="bi bi-whatsapp"></i></button></a>
+                        </div>
+                    </div>
+                    <div class="img-topo-site">
+                        <img src="images/foto.jpg" alt="Foto de Jonathan Silva">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Especialidades" class="especialidades">
+            <div class="interface">
+                <h2 class="titulo">MINHAS <span>ESPECIALIDADES</span></h2>
+                <div class="flex">
+                    <div class="especialidades-box">
+                        <i class="bi bi-motherboard"></i>
+                        <h3>Suporte Técnico</h3>
+                        <p>Experiência em manutenção de computadores, redes e infraestrutura de TI, oferecendo suporte técnico eficiente para garantir alto desempenho e estabilidade dos sistemas.</p>
+                    </div>
+                    <div class="especialidades-box">
+                        <i class="bi bi-code-slash"></i>
+                        <h3>WebSite</h3>
+                        <p>Criação e manutenção de sites responsivos e funcionais, utilizando tecnologias modernas para entregar soluções dinâmicas e intuitivas.   </p>
+                    </div>
+                    <div class="especialidades-box">
+                        <i class="bi bi-database-check"></i>
+                        <h3>Análise de Dados</h3>
+                        <p>Uso de ferramentas como Pandas e Pentaho para coletar, tratar e transformar dados, auxiliando na tomada de decisões estratégicas.</p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="especialidades-box">
+                        <i class="bi bi-hdd-rack"></i>
+                        <h3>Redes & Conectividade</h3>
+                        <p>Configuração e manutenção de redes cabeadas e Wi-Fi, assegurando conexões estáveis e seguras para ambientes domésticos e empresariais.</p>
+                    </div>
+                    <div class="especialidades-box">
+                        <i class="bi bi-shield-check"></i>
+                        <h3>Segurança da Informação</h3>
+                        <p>Implementação de boas práticas de segurança para proteção de sistemas e dados, prevenindo vulnerabilidades e garantindo a integridade das informações.</p>
+                    </div>
+                    <div class="especialidades-box">
+                        <i class="bi bi-robot"></i>
+                        <h3>Automação de Processos</h3>
+                        <p>Desenvolvimento e implementação de soluções para automatizar tarefas repetitivas, aumentando a produtividade e reduzindo erros operacionais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Portfólio" class="portfolio">
+            <div class="interface">
+                <h2 class="titulo">MEU <span>PORTFÓLIO</span></h2>
+                <div class="flex">
+                    <div class="img-port"></div>
+                    <div class="img-port"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="interface">
+            <div class="line-footer">
+                <div class="flex">
+                    <div class="logo-footer">
+                        <img src="images/foto.jpg" alt="Minha logo">
+                    </div>
+                    <div class="btn-social">
+                        <a href="https://www.linkedin.com/in/jonathan-silva-7a67a221a/"><button><i class="bi bi-linkedin"></i></button></a>
+                        <a href="https://github.com/Jonathan-inja"><button><i class="bi bi-github"></i></button></a>
+                        <a href="https://www.instagram.com/jonathan_silva_31/"><button><i class="bi bi-instagram"></i></button></a>
+                        <a href="https://wa.me/message/2RFFTAV5IQYNC1"><button><i class="bi bi-whatsapp"></i></button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="line-footer borda">
+                <p><i class="bi bi-envelope-at"></i> <a href="mailto:jonathan.inja6@gmail.com">jonathan.inja6@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+/*  Estilo Geral */
+
+*{
+    margin: 0;  
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: black;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h2.titulo{
+    color: #ffffff;
+    font-size: 38px;
+    text-align: center;
+}
+h2.titulo span{
+    color: blue;
+}
+
+p{
+    font-size: 16px;
+}
+
+button:hover{
+    box-shadow: 0px 0px 8px rgba(0, 0, 255, 0.768);
+    transform: scale(1.05);
+}
+
+
+/* Estilo do Cabeçalho */
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+h1{
+    font-weight: 180;
+}
+
+li{
+    display: inline-block;
+    margin: 15px;
+}
+
+header a{
+    text-decoration: none;
+    color: rgb(146, 146, 146);
+    font: bolder;
+    padding: 0px 10px 10px;
+    position: relative;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header a:hover{
+    color: #ffffff;
+}
+
+header .botoes::after{
+    content: " ";
+    width: 0%;
+    height: 3px;
+    background-color: rgb(29, 25, 223);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease-in-out;
+}
+
+header .botoes:hover::after{
+    width: 100%;
+}
+
+
+/* Estilo do topo do site */
+section.topo-do-site{
+    padding: 40px 4%;
+}
+
+section.topo-do-site .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}
+
+.topo-do-site .txt-topo-site h2{
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+
+.topo-do-site .txt-topo-site h2 span{
+    color: blue;
+    display: block;
+}
+
+.topo-do-site .txt-topo-site p{
+    color: #ffffff;
+    margin: 40px 0;
+    text-align: justify;
+}
+
+.topo-do-site .img-topo-site img{
+    width: 300px; 
+    height: 300px; 
+    position: relative;
+    border-radius: 50%;
+    justify-content: center;
+}
+
+.topo-do-site .btn-social button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    color: #ffffff;
+    background-color: blue;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: .2s;
+}
+
+
+/* Estilo das Especialidades */
+section.especialidades{
+    margin: 30px;
+    padding:50px 4%;
+    box-shadow: 0 0 20px 5px #ffffff2c;
+    border-radius: 30px;
+}
+
+section.especialidades .flex{
+    gap: 10px;
+}
+
+section.especialidades .flex h3{
+    font-size: 22px;
+}
+
+section.especialidades .flex p{
+    font-size: 13px;
+}
+
+.especialidades .especialidades-box{
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 45px;
+    transition: .2s;
+    align-items: center;
+    flex: 1 1 300px;
+}
+
+.especialidades .especialidades-box:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ffffff8e;
+}
+
+.especialidades .especialidades-box i{
+    font-size: 70px;
+    color: blue;
+    padding-left: 35%;
+}
+
+.especialidades .especialidades-box h3{
+    font-size: 26px;
+    margin: 5px 0;
+}
+
+
+/* Estilo do portfólio */
+section.portfolio{
+    margin: 30px;
+    padding: 50px 4%;
+    box-shadow: 0 0 50px 10px #ffffff2c;
+    border-radius: 30px;
+}
+
+section.portfolio .flex{
+    padding-top: 50px;
+    gap: 60px;
+    justify-content: center;
+}
+
+.img-port{
+    width: 360px;
+    height: 460px;
+    background-color: blue;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 6s;
+    cursor: pointer;
+}
+
+.img-port:hover{
+    background-position: 100% 100%;
+}
+
+
+/* Estilo do rodapé */
+footer{
+    padding: 40px 4%;
+    box-shadow: 0 0 40px 10px #ffffff2c;
+}
+
+footer img{
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+footer .flex{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+footer .btn-social{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+footer .btn-social button{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    color: #ffffff;
+    background-color: blue;
+    font-size: 22px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+footer.line-footer{
+    padding: 20px 0;
+}
+
+.borda {
+    margin: 10px;
+    border-top: 2px solid blue;
+}
+
+footer .line-footer p i{
+    color: blue;
+    font-size: 22px;
+}
+
+footer .line-footer p a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .topo-do-site .img-topo-site img {
+        width: 250px;
+        height: 250px;
     }
 
-    header{
-        padding: 40px 4%;
+    .img-port {
+        width: 300px;
+        height: 400px;
     }
+}
 
-    header > .interface{
-        display: flex;
+@media (max-width: 768px) {
+    .flex {
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
     }
 
-    header a{
-        /* color: #636363;
-        text-decoration: none;
-        display: inline-block;
-        transition: .2s; */
+    .especialidades .especialidades-box i {
+        padding-left: 0;
     }
-    /* header a:hover{
-        color: #fff;
-        transform: scale(1.05);
-    } */
 
-    header nav ul{
-        list-style-type: none;
+    section.especialidades .flex, section.portfolio .flex {
+        gap: 30px;
     }
-    
-    header nav ul li{
-        display: inline-block;
-        padding: 0 40px;
+
+    .img-port {
+        width: 100%;
+        height: 300px;
     }
-    
-    header .btn-contato button{
-        padding: 10px 40px;
-        font-size: 18px;
-        font-weight: 600;
-        background-color: blue;
-        border: 0;
-        border-radius: 30px;
-        cursor: pointer;
+
+    .topo-do-site .txt-topo-site h2 {
+        font-size: 26px;
     }
-    header .btn-contato button:hover{
-        box-shadow: 0px 0px 8px rgba(0, 0, 255, 0.768);
+
+    .topo-do-site .btn-social button {
+        margin: 10px;
     }
+
+    .topo-do-site .flex {
+        flex-direction: column;
+    }
+
+    footer .btn-social button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    footer img {
+        width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    header ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    header a {
+        margin: 5px 0;
+        padding: 5px;
+    }
+
+    .topo-do-site .txt-topo-site h2 {
+        font-size: 22px;
+    }
+
+    .topo-do-site .txt-topo-site p {
+        font-size: 14px;
+        margin: 20px 0;
+    }
+
+    .img-port {
+        height: 250px;
+    }
+
+    .topo-do-site .flex {
+        flex-direction: column;
+    }
+
+    footer .btn-social {
+        justify-content: center;
+    }
+}
