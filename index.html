@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Jonathan Silva. Estudante de Sistemas de Informação com experiência em TI e desenvolvimento.">
+    <meta name="keywords" content="Jonathan Silva, portfólio, TI, desenvolvimento, suporte técnico, análise de dados">
+    <meta name="author" content="Jonathan Silva">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,18 +18,33 @@
     <title>Portfólio</title>
 </head>
 <body>
-    
+
     <header>
+        <!-- Menu para desktop -->
         <nav class="manu-desk">
             <ul>
                 <a class="botoes" href="#Inicio"><li>Inicio</li></a>
                 <a class="botoes" href="#Especialidades"><li>Especialidades</li></a>
-                <a class="botoes" href="#Portfólio"><li>Projetos</li></a>
+                <!-- <a class="botoes" href="#Portfólio"><li>Projetos</li></a> -->
+                 <a class="botoes" href="#Contatos"><li>Contato</li></a>
             </ul>
         </nav>
+        <!-- Ícone do menu para mobile -->
+        <div class="menu-mobile-icon" onclick="toggleMenu()">
+            <i class="bi bi-list"></i>
+        </div>
+        
+        <!-- Menu mobile (inicialmente escondido) -->
+        <nav class="menu-mobile" id="menu-mobile">
+            <a href="#Inicio">Inicio</a>
+            <a href="#Especialidades">Especialidades</a>
+            <a href="#Contatos">Contato</a>
+        </nav>
+  
     </header>
 
     <main>
+
         <section id="Inicio" class="topo-do-site">
             <div class="interface">
                 <div class="flex">
@@ -97,7 +116,7 @@
             </div>
         </section>
 
-        <section id="Portfólio" class="portfolio">
+        <!-- <section id="Portfólio" class="portfolio">
             <div class="interface">
                 <h2 class="titulo">MEU <span>PORTFÓLIO</span></h2>
                 <div class="flex">
@@ -106,7 +125,23 @@
                     <div class="img-port"></div>
                 </div>
             </div>
+        </section> -->
+    
+        <section id="Contatos" class="contatos">
+            <div class="interface">
+                <h2>ENTRE EM <span>CONTATO</span></h2>
+                <form action="https://formsubmit.co/jonathan.inja6@gmail.com" method="POST">
+                    <input type="text" name="" id="nome" placeholder="Seu nome completo:" required>
+                    <input type="text" name="" id="email" placeholder="Seu e-mail:" required>
+                    <input type="text" name="" id="celular" placeholder="Seu celular">
+                    <textarea id="mensagem" placeholder="Sua mensagem:" rows="6" required></textarea>
+                    <div class="btn-enviar">
+                        <input type="submit" value="Enviar">
+                    </div>
+                </form>
+            </div>
         </section>
+
     </main>
 
     <footer>
@@ -129,5 +164,13 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+          const menu = document.getElementById('menu-mobile');
+          menu.classList.toggle('ativo');
+        }
+    </script>
+      
 </body>
 </html>
