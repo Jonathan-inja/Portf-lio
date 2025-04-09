@@ -136,7 +136,7 @@
                     ✅ Mensagem enviada com sucesso!
                 </p>
                 
-                <form action="https://formsubmit.co/jonathan.inja6@gmail.com" method="POST">
+                <form id="formulario-contato" method="POST">
     
                     <!-- Campo honeypot (proteção contra bots) -->
                     <input type="text" name="_honey" style="display:none">
@@ -188,55 +188,91 @@
     </footer>
 
     <script>
-
         function toggleMenu() {
-          const menu = document.getElementById('menu-mobile');
-          menu.classList.toggle('ativo');
+            const menu = document.getElementById('menu-mobile');
+            menu.classList.toggle('ativo');
         }
-
-        const form = document.querySelector('form');
-        const btn = document.getElementById('btn-enviar');
+    
+        const form = document.getElementById('formulario-contato');
+        const btnEnviar = document.querySelector('.btn-enviar input');
         const mensagemConfirmacao = document.getElementById('mensagem-confirmacao');
         let startTime = Date.now();
-
-        form.addEventListener('submit', function (e) {
+    
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+    
             const nome = document.getElementById('nome').value.trim();
             const email = document.getElementById('email').value.trim();
+            const celular = document.getElementById('celular').value.trim();
             const mensagem = document.getElementById('mensagem').value.trim();
-
+    
             if (!nome || !email || !mensagem) {
-            e.preventDefault();
-            alert('Por favor, preencha todos os campos obrigatórios.');
-            return;
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
             }
-
+    
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-            e.preventDefault();
-            alert('Por favor, insira um e-mail válido.');
-            return;
+                alert('Por favor, insira um e-mail válido.');
+                return;
             }
-
+    
             const tempo = (Date.now() - startTime) / 1000;
             if (tempo < 3) {
-            e.preventDefault();
-            alert('Você está tentando enviar muito rápido. Por favor, espere um pouco.');
-            return;
+                alert('Você está tentando enviar muito rápido. Por favor, espere um pouco.');
+                return;
             }
-
-            // Estética: muda o botão e mostra a mensagem
-            btn.disabled = true;
-            btn.value = 'Enviado ✅';
-            mensagemConfirmacao.style.display = 'block';
-
-            // Some após 5 segundos
-            setTimeout(() => {
+    
+            btnEnviar.disabled = true;
+            btnEnviar.value = 'Enviando...';
+    
+            // Reseta a animação
+            mensagemConfirmacao.classList.remove('show', 'hide');
             mensagemConfirmacao.style.display = 'none';
-            btn.disabled = false;
-            btn.value = 'Enviar';
-            }, 5000);
+    
+            try {
+                const formData = new FormData(form);
+    
+                formData.append('_honey', '');
+                formData.append('_captcha', 'false');
+                formData.append('_template', 'table');
+    
+                const response = await fetch("https://formsubmit.co/jonathan.inja6@gmail.com", {
+                    method: "POST",
+                    body: formData,
+                });
+    
+                if (response.ok) {
+                    btnEnviar.value = 'Enviado';
+    
+                    // Mostra com animação
+                    mensagemConfirmacao.style.display = 'block';
+                    void mensagemConfirmacao.offsetWidth; // força reflow para reiniciar a animação
+                    mensagemConfirmacao.classList.add('show');
+    
+                    form.reset();
+    
+                    setTimeout(() => {
+                        mensagemConfirmacao.classList.remove('show');
+                        mensagemConfirmacao.classList.add('hide');
+    
+                        setTimeout(() => {
+                            mensagemConfirmacao.style.display = 'none';
+                            btnEnviar.disabled = false;
+                            btnEnviar.value = 'Enviar';
+                        }, 500); // Espera o fadeOut
+                    }, 5000);
+                } else {
+                    alert('Erro ao enviar. Tente novamente.');
+                    btnEnviar.disabled = false;
+                    btnEnviar.value = 'Enviar';
+                }
+            } catch (error) {
+                alert('Erro ao enviar. Verifique sua conexão.');
+                btnEnviar.disabled = false;
+                btnEnviar.value = 'Enviar';
+            }
         });
-
     </script>
       
 </body>

@@ -44,7 +44,6 @@ button:hover, .contatos .btn-enviar input:hover{
 
 
 /* Estilo do Cabeçalho */
-
 header{
     display: flex;
     flex-direction: row;
@@ -70,7 +69,6 @@ header a{
     position: relative;
     font-family: 'Courier New', Courier, monospace;
 }
-
 header a:hover{
     color: #ffffff;
 }
@@ -141,18 +139,15 @@ section.topo-do-site .flex{
     flex: 1;
     min-width: 65%;
 }
-
 .topo-do-site .txt-topo-site h2{
     font-size: 30px;
     line-height: 40px;
     margin-bottom: 30px;
 }
-
 .topo-do-site .txt-topo-site h2 span{
     color: blue;
     display: block;
 }
-
 .topo-do-site .txt-topo-site p{
     color: #ffffff;
     margin: 40px 0;
@@ -165,7 +160,6 @@ section.topo-do-site .flex{
     display: flex;
     justify-content: center;
 }
-
 .topo-do-site .img-topo-site .minha-foto{
     width: 300px; 
     height: 300px; 
@@ -193,15 +187,12 @@ section.especialidades{
     box-shadow: 0 0 20px 5px #ffffff2c;
     border-radius: 30px;
 }
-
 section.especialidades .flex{
     gap: 10px;
 }
-
 section.especialidades .flex h3{
     font-size: 22px;
 }
-
 section.especialidades .flex p{
     font-size: 13px;
 }
@@ -215,18 +206,15 @@ section.especialidades .flex p{
     align-items: center;
     flex: 1 1 300px;
 }
-
 .especialidades .especialidades-box:hover{
     transform: scale(1.05);
     box-shadow: 0 0 20px #ffffff8e;
 }
-
 .especialidades .especialidades-box i{
     font-size: 70px;
     color: blue;
     padding-left: 35%;
 }
-
 .especialidades .especialidades-box h3{
     font-size: 26px;
     margin: 5px 0;
@@ -240,7 +228,6 @@ section.portfolio{
     box-shadow: 0 0 50px 10px #ffffff2c;
     border-radius: 30px;
 }
-
 section.portfolio .flex{
     padding-top: 50px;
     gap: 60px;
@@ -257,7 +244,6 @@ section.portfolio .flex{
     transition: 6s;
     cursor: pointer;
 }
-
 .img-port:hover{
     background-position: 100% 100%;
 }
@@ -319,26 +305,22 @@ footer{
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
-
 footer img{
     width: 100px;
     height: auto;
     border-radius: 50%;
 }
-
 footer .flex{
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 30px;
 }
-
 footer .btn-social{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
-
 footer .btn-social button{
     width: 60px;
     height: 60px;
@@ -350,21 +332,17 @@ footer .btn-social button{
     cursor: pointer;
     transition: .2s;
 }
-
 footer.line-footer{
     padding: 20px 0;
 }
-
 .borda {
     margin: 10px;
     border-top: 2px solid blue;
 }
-
 footer .line-footer p i{
     color: blue;
     font-size: 22px;
 }
-
 footer .line-footer p a{
     color: #ffffff;
     text-decoration: none;
@@ -373,21 +351,35 @@ footer .line-footer p a{
 
 /* Mensagem de confirmação de enviou de formulario */
 .mensagem-confirmacao {
-    display: none;
     background-color: #d4edda;
     color: #155724;
-    padding: 15px;
-    margin-bottom: 15px;
     border: 1px solid #c3e6cb;
+    padding: 15px;
+    margin-top: 20px;
     border-radius: 8px;
     font-weight: bold;
     text-align: center;
-    animation: fadeIn 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    display: none;
 }
-
+/* Animação para mostrar (fadeIn) */
+.show {
+    animation: fadeIn 0.5s forwards;
+}
+/* Animação para esconder (fadeOut) */
+.hide {
+    animation: fadeOut 0.5s forwards;
+}
+/* Keyframes para animação de entrada */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+/* Keyframes para animação de saída */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
 
@@ -397,7 +389,6 @@ footer .line-footer p a{
         width: 250px;
         height: 250px;
     }
-
     .img-port {
         width: 300px;
         height: 400px;
@@ -413,7 +404,6 @@ footer .line-footer p a{
     .especialidades .especialidades-box i {
         padding-left: 0;
     }
-
     section.especialidades .flex, section.portfolio .flex {
         gap: 30px;
     }
@@ -427,16 +417,13 @@ footer .line-footer p a{
         font-size: 26px;
         text-align: center;
     }
-
     .topo-do-site .txt-topo-site p {
         margin: 20px 0;
     }
-
     .topo-do-site .btn-social{
         margin: 10px;
         text-align: center;
     }
-
     .topo-do-site .flex {
         flex-direction: column;
     }
@@ -445,9 +432,7 @@ footer .line-footer p a{
         width: 50px;
         height: 50px;
         font-size: 20px;
-
     }
-
     footer img {
         width: 80px;
         justify-content: center;
@@ -455,7 +440,6 @@ footer .line-footer p a{
     footer .btn-social {
         justify-content: center;
     }
-
     footer .line-footer{
         text-align: center;
     }
@@ -469,7 +453,6 @@ footer .line-footer p a{
     header .manu-desk{
         display: none;
     }
-
     header{
         position: fixed;
         top: 0;
@@ -478,11 +461,9 @@ footer .line-footer p a{
         background-color: #00000086; 
         z-index: 999; 
     }
-
     header .menu-mobile-icon {
         display: block;
     }
-
     header a {
         margin: 5px 0;
         padding: 5px;
@@ -492,23 +473,21 @@ footer .line-footer p a{
         font-size: 22px;
         text-align: center;
     }
-
     .topo-do-site .txt-topo-site p{
         font-size: 14px;
         margin: 20px 0;
     }
-
     .topo-do-site .btn-social{
         text-align: center;
+    }
+    .topo-do-site .flex {
+        flex-direction: column;
     }
 
     .img-port {
         height: 250px;
     }
 
-    .topo-do-site .flex {
-        flex-direction: column;
-    }
 
     section.contatos h2{
         font-size: 34px;
@@ -516,11 +495,9 @@ footer .line-footer p a{
     section.contatos h2 span{
         font-size: 38px;
     }
-
     footer .btn-social {
         justify-content: center;
     }
-
     footer .line-footer{
         text-align: center;
     }
