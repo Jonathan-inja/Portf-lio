@@ -129,16 +129,38 @@
     
         <section id="Contatos" class="contatos">
             <div class="interface">
+
                 <h2>ENTRE EM <span>CONTATO</span></h2>
+
+                <p id="mensagem-confirmacao" class="mensagem-confirmacao">
+                    ✅ Mensagem enviada com sucesso!
+                </p>
+                
                 <form action="https://formsubmit.co/jonathan.inja6@gmail.com" method="POST">
-                    <input type="text" name="" id="nome" placeholder="Seu nome completo:" required>
-                    <input type="text" name="" id="email" placeholder="Seu e-mail:" required>
-                    <input type="text" name="" id="celular" placeholder="Seu celular">
-                    <textarea id="mensagem" placeholder="Sua mensagem:" rows="6" required></textarea>
+    
+                    <!-- Campo honeypot (proteção contra bots) -->
+                    <input type="text" name="_honey" style="display:none">
+                    
+                    <!-- Desativa captcha do FormSubmit -->
+                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <!-- Formato de e-mail em tabela -->
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <!-- Redirecionamento após envio -->
+                    <input type="hidden" name="_next" value="https://jonathan.github.io/seuportfolio/obrigado.html">
+                
+                    <!-- Campos reais -->
+                    <input type="text" name="nome" id="nome" placeholder="Seu nome completo:" required>
+                    <input type="email" name="email" id="email" placeholder="Seu e-mail:" required>
+                    <input type="text" name="celular" id="celular" placeholder="Seu celular">
+                    <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem:" rows="6" required></textarea>
+                
                     <div class="btn-enviar">
                         <input type="submit" value="Enviar">
                     </div>
-                </form>
+                </form>                
+                
             </div>
         </section>
 
@@ -166,10 +188,55 @@
     </footer>
 
     <script>
+
         function toggleMenu() {
           const menu = document.getElementById('menu-mobile');
           menu.classList.toggle('ativo');
         }
+
+        const form = document.querySelector('form');
+        const btn = document.getElementById('btn-enviar');
+        const mensagemConfirmacao = document.getElementById('mensagem-confirmacao');
+        let startTime = Date.now();
+
+        form.addEventListener('submit', function (e) {
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            if (!nome || !email || !mensagem) {
+            e.preventDefault();
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+            e.preventDefault();
+            alert('Por favor, insira um e-mail válido.');
+            return;
+            }
+
+            const tempo = (Date.now() - startTime) / 1000;
+            if (tempo < 3) {
+            e.preventDefault();
+            alert('Você está tentando enviar muito rápido. Por favor, espere um pouco.');
+            return;
+            }
+
+            // Estética: muda o botão e mostra a mensagem
+            btn.disabled = true;
+            btn.value = 'Enviado ✅';
+            mensagemConfirmacao.style.display = 'block';
+
+            // Some após 5 segundos
+            setTimeout(() => {
+            mensagemConfirmacao.style.display = 'none';
+            btn.disabled = false;
+            btn.value = 'Enviar';
+            }, 5000);
+        });
+
     </script>
       
 </body>
