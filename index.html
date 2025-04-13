@@ -15,11 +15,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <title>Portfólio</title>
+    <title>Portfólio de Jonathan Silva | TI & Desenvolvimento</title>
+
 </head>
 <body>
     <!-- 🔔 TOAST MESSAGE -->
-    <div id="toast" class="toast">✅ Mensagem enviada com sucesso!</div>
+    <div id="toast" class="toast"> Mensagem enviada com sucesso!</div>
+
     <header>
         <!-- Menu para desktop -->
         <nav class="manu-desk">
@@ -64,10 +66,10 @@
                         
                         
                         <div class="btn-social">
-                            <a href="https://www.linkedin.com/in/jonathan-silva-7a67a221a/"><button><i class="bi bi-linkedin"></i></button></a>
-                            <a href="https://github.com/Jonathan-inja"><button><i class="bi bi-github"></i></button></a>
-                            <a href="https://www.instagram.com/jonathan_silva_31/"><button><i class="bi bi-instagram"></i></button></a>
-                            <a href="https://wa.me/message/2RFFTAV5IQYNC1"><button><i class="bi bi-whatsapp"></i></button></a>
+                            <a href="https://www.linkedin.com/in/jonathan-silva-7a67a221a/"><button aria-label="Linkdin"><i class="bi bi-linkedin"></i></button></a>
+                            <a href="https://github.com/Jonathan-inja"><button aria-label="GitHub"><i class="bi bi-github"></i></button></a>
+                            <a href="https://www.instagram.com/jonathan_silva_31/"><button aria-label="Instagram"><i class="bi bi-instagram"></i></button></a>
+                            <a href="https://wa.me/message/2RFFTAV5IQYNC1"><button aria-label="Whatsapp"><i class="bi bi-whatsapp"></i></button></a>
                         </div>
                     </div>
                     <div class="img-topo-site">
@@ -160,10 +162,10 @@
                         <img src="images/foto.jpg" alt="Minha logo">
                     </div>
                     <div class="btn-social">
-                        <a href="https://www.linkedin.com/in/jonathan-silva-7a67a221a/"><button><i class="bi bi-linkedin"></i></button></a>
-                        <a href="https://github.com/Jonathan-inja"><button><i class="bi bi-github"></i></button></a>
-                        <a href="https://www.instagram.com/jonathan_silva_31/"><button><i class="bi bi-instagram"></i></button></a>
-                        <a href="https://wa.me/message/2RFFTAV5IQYNC1"><button><i class="bi bi-whatsapp"></i></button></a>
+                        <a href="https://www.linkedin.com/in/jonathan-silva-7a67a221a/"><button aria-label="Linkdin"><i class="bi bi-linkedin"></i></button></a>
+                        <a href="https://github.com/Jonathan-inja"><button aria-label="GitHub"><i class="bi bi-github"></i></button></a>
+                        <a href="https://www.instagram.com/jonathan_silva_31/"><button aria-label="Instagram"><i class="bi bi-instagram"></i></button></a>
+                        <a href="https://wa.me/message/2RFFTAV5IQYNC1"><button aria-label="Whatsapp"><i class="bi bi-whatsapp"></i></button></a>
                     </div>
                 </div>
             </div>
@@ -182,7 +184,11 @@
         const form = document.getElementById('formulario-contato');
         const btnEnviar = document.querySelector('.btn-enviar input');
         const toast = document.getElementById('toast');
-        let startTime = Date.now();
+        let startTime;
+
+        window.addEventListener('load', () => {
+        startTime = Date.now();
+        });
     
         function showToast(message) {
             const toast = document.createElement('div');
@@ -243,7 +249,7 @@
             if (response.ok) {
               btnEnviar.value = 'Enviado';
               form.reset();
-              showToast();
+              showToast("Mensagem enviada com sucesso!");
     
               setTimeout(() => {
                 btnEnviar.disabled = false;
