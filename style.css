@@ -350,37 +350,55 @@ footer .line-footer p a{
 
 
 /* Mensagem de confirmação de enviou de formulario */
-.mensagem-confirmacao {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    padding: 15px;
-    margin-top: 20px;
+.toast {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
     border-radius: 8px;
-    font-weight: bold;
-    text-align: center;
-    transition: opacity 0.5s ease-in-out;
+    font-size: 1rem;
+    z-index: 9999;
     opacity: 0;
-    display: none;
-}
-/* Animação para mostrar (fadeIn) */
-.show {
-    animation: fadeIn 0.5s forwards;
-}
-/* Animação para esconder (fadeOut) */
-.hide {
-    animation: fadeOut 0.5s forwards;
-}
-/* Keyframes para animação de entrada */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-/* Keyframes para animação de saída */
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
+    pointer-events: none;
+  }
+  
+  /* Animação de entrada */
+  .toast.show {
+    animation: slideDownFade 0.6s ease forwards;
+  }
+  
+  /* Animação de saída */
+  .toast.hide {
+    animation: fadeOutUp 0.6s ease forwards;
+  }
+  
+  /* Keyframes de entrada */
+  @keyframes slideDownFade {
+    from {
+      top: -50px;
+      opacity: 0;
+    }
+    to {
+      top: 40px;
+      opacity: 1;
+    }
+  }
+  
+  /* Keyframes de saída */
+  @keyframes fadeOutUp {
+    from {
+      top: 40px;
+      opacity: 1;
+    }
+    to {
+      top: 0px;
+      opacity: 0;
+    }
+  }
+  
 
 
 /* Responsividade */

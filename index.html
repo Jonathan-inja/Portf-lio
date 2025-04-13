@@ -18,7 +18,8 @@
     <title>Portfólio</title>
 </head>
 <body>
-
+    <!-- 🔔 TOAST MESSAGE -->
+    <div id="toast" class="toast">✅ Mensagem enviada com sucesso!</div>
     <header>
         <!-- Menu para desktop -->
         <nav class="manu-desk">
@@ -129,40 +130,25 @@
     
         <section id="Contatos" class="contatos">
             <div class="interface">
-
-                <h2>ENTRE EM <span>CONTATO</span></h2>
-
-                <p id="mensagem-confirmacao" class="mensagem-confirmacao" style="display: none;">
-                    ✅ Mensagem enviada com sucesso!
-                </p>
-                
-                <form id="formulario-contato" method="POST">
-    
-                    <!-- Campo honeypot (proteção contra bots) -->
-                    <input type="text" name="_honey" style="display:none">
-                    
-                    <!-- Desativa captcha do FormSubmit -->
-                    <input type="hidden" name="_captcha" value="false">
-                    
-                    <!-- Formato de e-mail em tabela -->
-                    <input type="hidden" name="_template" value="table">
-                    
-                    <!-- Redirecionamento após envio -->
-                    <input type="hidden" name="_next" value="https://jonathan-inja.github.io/Portf-lio/">
-                
-                    <!-- Campos reais -->
-                    <input type="text" name="nome" id="nome" placeholder="Seu nome completo:" required>
-                    <input type="email" name="email" id="email" placeholder="Seu e-mail:" required>
-                    <input type="text" name="celular" id="celular" placeholder="Seu celular">
-                    <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem:" rows="6" required></textarea>
-                
-                    <div class="btn-enviar">
-                        <input type="submit" value="Enviar">
-                    </div>
-                </form>                
-                
+              <h2>ENTRE EM <span>CONTATO</span></h2>
+        
+              <form id="formulario-contato" method="POST">
+                <input type="text" name="_honey" style="display:none" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_next" value="https://jonathan-inja.github.io/Portf-lio/" />
+        
+                <input type="text" name="nome" id="nome" placeholder="Seu nome completo:" required />
+                <input type="email" name="email" id="email" placeholder="Seu e-mail:" required />
+                <input type="text" name="celular" id="celular" placeholder="Seu celular" />
+                <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem:" rows="6" required></textarea>
+        
+                <div class="btn-enviar">
+                  <input type="submit" value="Enviar" />
+                </div>
+              </form>
             </div>
-        </section>
+          </section>
 
     </main>
 
@@ -189,89 +175,90 @@
 
     <script>
         function toggleMenu() {
-            const menu = document.getElementById('menu-mobile');
-            menu.classList.toggle('ativo');
+          const menu = document.getElementById('menu-mobile');
+          menu.classList.toggle('ativo');
         }
     
         const form = document.getElementById('formulario-contato');
         const btnEnviar = document.querySelector('.btn-enviar input');
-        const mensagemConfirmacao = document.getElementById('mensagem-confirmacao');
+        const toast = document.getElementById('toast');
         let startTime = Date.now();
     
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-    
-            const nome = document.getElementById('nome').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const celular = document.getElementById('celular').value.trim();
-            const mensagem = document.getElementById('mensagem').value.trim();
-    
-            if (!nome || !email || !mensagem) {
-                alert('Por favor, preencha todos os campos obrigatórios.');
-                return;
-            }
-    
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Por favor, insira um e-mail válido.');
-                return;
-            }
-    
-            const tempo = (Date.now() - startTime) / 1000;
-            if (tempo < 3) {
-                alert('Você está tentando enviar muito rápido. Por favor, espere um pouco.');
-                return;
-            }
-    
-            btnEnviar.disabled = true;
-            btnEnviar.value = 'Enviando...';
-    
-            // Reseta a animação
-            mensagemConfirmacao.classList.remove('show', 'hide');
-            mensagemConfirmacao.style.display = 'none';
-    
-            try {
-                const formData = new FormData(form);
-    
-                formData.append('_honey', '');
-                formData.append('_captcha', 'false');
-                formData.append('_template', 'table');
-    
-                const response = await fetch("https://formsubmit.co/jonathan.inja6@gmail.com", {
-                    method: "POST",
-                    body: formData,
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast show';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                toast.classList.add('hide');
+
+                toast.addEventListener('animationend', () => {
+                toast.remove();
                 });
+            }, 5000);
+        }
+
     
-                if (response.ok) {
-                    btnEnviar.value = 'Enviado';
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
     
-                    // Mostra com animação
-                    mensagemConfirmacao.style.display = 'block';
-                    void mensagemConfirmacao.offsetWidth; // força reflow para reiniciar a animação
-                    mensagemConfirmacao.classList.add('show');
+          const nome = document.getElementById('nome').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const celular = document.getElementById('celular').value.trim();
+          const mensagem = document.getElementById('mensagem').value.trim();
     
-                    form.reset();
+          if (!nome || !email || !mensagem) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+          }
     
-                    setTimeout(() => {
-                        mensagemConfirmacao.classList.remove('show');
-                        mensagemConfirmacao.classList.add('hide');
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert('Por favor, insira um e-mail válido.');
+            return;
+          }
     
-                        setTimeout(() => {
-                            mensagemConfirmacao.style.display = 'none';
-                            btnEnviar.disabled = false;
-                            btnEnviar.value = 'Enviar';
-                        }, 500); // Espera o fadeOut
-                    }, 5000);
-                } else {
-                    alert('Erro ao enviar. Tente novamente.');
-                    btnEnviar.disabled = false;
-                    btnEnviar.value = 'Enviar';
-                }
-            } catch (error) {
-                alert('Erro ao enviar. Verifique sua conexão.');
+          const tempo = (Date.now() - startTime) / 1000;
+          if (tempo < 3) {
+            alert('Você está tentando enviar muito rápido. Por favor, espere um pouco.');
+            return;
+          }
+    
+          btnEnviar.disabled = true;
+          btnEnviar.value = 'Enviando...';
+    
+          try {
+            const formData = new FormData(form);
+            formData.append('_honey', '');
+            formData.append('_captcha', 'false');
+            formData.append('_template', 'table');
+    
+            const response = await fetch("https://formsubmit.co/jonathan.inja6@gmail.com", {
+              method: "POST",
+              body: formData,
+            });
+    
+            if (response.ok) {
+              btnEnviar.value = 'Enviado';
+              form.reset();
+              showToast();
+    
+              setTimeout(() => {
                 btnEnviar.disabled = false;
                 btnEnviar.value = 'Enviar';
+              }, 5000);
+            } else {
+              alert('Erro ao enviar. Tente novamente.');
+              btnEnviar.disabled = false;
+              btnEnviar.value = 'Enviar';
             }
+          } catch (error) {
+            alert('Erro ao enviar. Verifique sua conexão.');
+            btnEnviar.disabled = false;
+            btnEnviar.value = 'Enviar';
+          }
         });
     </script>
       
